@@ -2,17 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>PabosConnect</title>
+  <title>PabosConnect Café</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e9f5e9, #f5f0e6); /* verde suave y café claro */
+      background: linear-gradient(to right, #d7ccc8, #efebe9); /* tonos café suaves */
       margin: 0;
       padding: 0;
     }
     header {
-      background: #2e7d32; /* verde oscuro */
-      color: #fdf6e3;      /* café claro */
+      background: #4e342e; /* café oscuro */
+      color: #fbe9e7;       /* café claro */
       padding: 30px 20px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -20,7 +20,7 @@
     .container {
       max-width: 700px;
       margin: 40px auto;
-      background: #fffbea; /* fondo café muy claro */
+      background: #fff8e1; /* fondo cálido */
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -29,15 +29,15 @@
       width: 100%;
       padding: 12px;
       margin-top: 10px;
-      border: 1px solid #a1887f; /* café */
+      border: 1px solid #a1887f;
       border-radius: 8px;
       font-size: 1em;
-      background-color: #f9f9f9;
+      background-color: #fbe9e7;
     }
     button {
       margin-top: 15px;
       padding: 12px 25px;
-      background: #388e3c; /* verde */
+      background: #6d4c41;
       color: white;
       border: none;
       border-radius: 8px;
@@ -45,10 +45,10 @@
       cursor: pointer;
     }
     button:hover {
-      background: #1b5e20; /* verde más oscuro */
+      background: #4e342e;
     }
     .post {
-      border-top: 1px solid #d7ccc8; /* café claro */
+      border-top: 1px solid #bcaaa4;
       padding: 20px 0;
     }
     .post img {
@@ -57,13 +57,13 @@
       margin-top: 10px;
     }
     .post strong {
-      color: #2e7d32; /* verde */
+      color: #6d4c41;
       font-size: 1.1em;
     }
     .post small {
       display: block;
       margin-top: 5px;
-      color: #6d4c41; /* café */
+      color: #5d4037;
       font-size: 0.9em;
     }
   </style>
@@ -71,18 +71,16 @@
 <body>
 
   <header>
-    <h1>PabosConnect</h1>
-    <p>Tu espacio en tonos verdes y cafés para compartir ideas e imágenes</p>
+    <h1>PabosConnect Café</h1>
+    <p>Un espacio cálido para compartir ideas e imágenes</p>
   </header>
 
-  <!-- Sección de login -->
   <div class="container" id="login-section">
     <h2>Iniciar sesión</h2>
     <input type="text" id="username" placeholder="Nombre de usuario">
     <button id="login-btn">Entrar</button>
   </div>
 
-  <!-- Sección del foro -->
   <div class="container" id="forum-section" style="display:none;">
     <h2>Crear publicación</h2>
     <form id="form">
@@ -108,7 +106,6 @@
       const form = document.getElementById('form');
       const posts = document.getElementById('posts');
 
-      // LOGIN
       loginBtn.addEventListener('click', () => {
         currentUser = usernameInput.value.trim();
         if (currentUser !== "") {
@@ -120,7 +117,6 @@
         }
       });
 
-      // CREAR PUBLICACIÓN
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -157,7 +153,6 @@
         form.reset();
       });
 
-      // MOSTRAR PUBLICACIONES
       function mostrarPosts() {
         posts.innerHTML = `<h2>Publicaciones recientes (${publicaciones.length})</h2>`;
         publicaciones.forEach((post, index) => {
@@ -179,7 +174,6 @@
         });
       }
 
-      // DAR LIKE
       window.darLike = function(index) {
         publicaciones[index].likes++;
         mostrarPosts();
